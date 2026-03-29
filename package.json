@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx cypress run --spec \"cypress/e2e/metagenesis-usability.cy.js,cypress/e2e/metagenesis-verifier-regression.cy.js\" --browser electron",
+    "test:headed": "npx cypress open",
+    "test:site": "npx cypress run --spec cypress/e2e/metagenesis-usability.cy.js --browser electron",
+    "test:verifier": "npx cypress run --spec cypress/e2e/metagenesis-verifier-regression.cy.js --browser electron"
   },
   "keywords": [],
   "author": "",
