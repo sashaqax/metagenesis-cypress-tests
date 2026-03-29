@@ -1,9 +1,9 @@
-# MetaGenesis usability and bug report
+# Bug report
 
 Date: 2026-03-29
 Target: `https://metagenesis-core-site1.vercel.app`
 
-## What was tested
+## Test context
 
 - `npm run test:site`
 - `npm run test:verifier`
@@ -42,6 +42,11 @@ Actual:
 - The expected result anchor `#anchor-verify-pass` never appears.
 - The UI shows a `VERIFYING...` state and the test run never observes a completed result.
 
+Impact:
+
+- The core product demo flow does not complete.
+- A user cannot confirm whether the entered claim passed or failed.
+
 Evidence:
 
 - `cypress/screenshots/metagenesis-verifier-regression.cy.js/`
@@ -59,7 +64,12 @@ Impact:
 - The tests currently suppress uncaught exceptions so that the rest of the page can still be exercised.
 - This suggests a client-side script issue that may affect real users depending on runtime path and browser behavior.
 
-## Notes
+Evidence:
 
-- The repo now contains a clean usability spec for the main site and a separate regression spec focused on the broken verifier flow.
-- The legacy sample Cypress specs are excluded from the project run configuration so they do not pollute results.
+- uncaught exception captured during Cypress page visit
+
+## Related files
+
+- `cypress/e2e/metagenesis-usability.cy.js`
+- `cypress/e2e/metagenesis-verifier-regression.cy.js`
+- `TEST_SCENARIO.md`
